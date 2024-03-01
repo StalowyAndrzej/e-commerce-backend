@@ -33,4 +33,4 @@
 /config/master.key
 
 Ignore IDE files
-/.idea
+.idea

@@ -92,6 +92,7 @@ GEM
     erubi (1.12.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    graphql (1.13.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
@@ -211,6 +212,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   debug
+  graphql (= 1.13.0)
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.2)

@@ -92,6 +92,9 @@ GEM
     erubi (1.12.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    graphiql-rails (1.7.0)
+      railties
+      sprockets-rails
     graphql (1.13.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -193,6 +196,13 @@ GEM
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
     rspec-support (3.13.1)
+    sprockets (4.2.1)
+      concurrent-ruby (~> 1.0)
+      rack (>= 2.2.4, < 4)
+    sprockets-rails (3.4.2)
+      actionpack (>= 5.2)
+      activesupport (>= 5.2)
+      sprockets (>= 3.0.0)
     stringio (3.1.0)
     thor (1.3.1)
     timeout (0.4.1)
@@ -212,6 +222,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   debug
+  graphiql-rails (= 1.7.0)
   graphql (= 1.13.0)
   pg (~> 1.1)
   puma (>= 5.0)

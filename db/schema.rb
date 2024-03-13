@@ -12,43 +12,43 @@
 
 ActiveRecord::Schema[7.1].define(version: 2024_03_06_065732) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'categories', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "collections", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'collections', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "order_items", force: :cascade do |t|
-    t.integer "quantity"
-    t.bigint "product_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_order_items_on_product_id"
+  create_table 'order_items', force: :cascade do |t|
+    t.integer 'quantity'
+    t.bigint 'product_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['product_id'], name: 'index_order_items_on_product_id'
   end
 
-  create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.decimal "total", precision: 10, scale: 2
-    t.integer "status", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'orders', id: :uuid, default: -> { 'gen_random_uuid()' }, force: :cascade do |t|
+    t.decimal 'total', precision: 10, scale: 2
+    t.integer 'status', default: 0
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.integer "price"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'products', force: :cascade do |t|
+    t.string 'name'
+    t.string 'description'
+    t.integer 'price'
+    t.string 'image'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  add_foreign_key "order_items", "products"
+  add_foreign_key 'order_items', 'products'
 end

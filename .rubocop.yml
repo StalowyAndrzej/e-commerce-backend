@@ -9,6 +9,11 @@
 #
 # See https://docs.rubocop.org/rubocop/configuration
 
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+  - rubocop-graphql
 
 AllCops:
   NewCops: enable

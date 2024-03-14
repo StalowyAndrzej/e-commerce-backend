@@ -50,3 +50,13 @@ RSpec/NestedGroups:
 
 RSpec/LetSetup:
   Enabled: false
+
+################### GRAPHQL ########################
+GraphQL/FieldDescription:
+  Enabled: false
+
+GraphQL/ObjectDescription:
+  Enabled: false
+
+GraphQL/ArgumentDescription:
+  Enabled: false

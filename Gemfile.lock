@@ -276,6 +276,7 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   rubocop-rspec
+  sprockets-rails
   tzinfo-data
 
 RUBY VERSION

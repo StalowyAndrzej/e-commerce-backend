@@ -48,3 +48,5 @@ group :development do
   # gem "spring"
   gem 'graphiql-rails', '1.7.0'
 end
+
+gem "rodauth-rails", "~> 1.13"

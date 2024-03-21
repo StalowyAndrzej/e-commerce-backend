@@ -18,3 +18,7 @@
     image: Faker::LoremFlickr.image(size: '200x300', search_terms: ['product'])
   )
 end
+
+10.times do
+  Category.create(name: Faker::Commerce.unique.department)
+end

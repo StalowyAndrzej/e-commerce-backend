@@ -22,3 +22,7 @@ end
 10.times do
   Category.create(name: Faker::Commerce.unique.department)
 end
+
+10.times do
+  Collection.create(name: Faker::Commerce.unique.vendor)
+end

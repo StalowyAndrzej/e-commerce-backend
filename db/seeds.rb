@@ -26,3 +26,12 @@ end
 10.times do
   Collection.create(name: Faker::Commerce.unique.vendor)
 end
+
+10.times do
+  Order.create!(
+    total: Faker::Number.decimal(l_digits: 4, r_digits: 2),
+    status: rand(3),
+    created_at: Faker::Time.between(from: DateTime.now - 365, to: DateTime.now),
+    updated_at: Faker::Time.between(from: DateTime.now - 365, to: DateTime.now)
+  )
+end

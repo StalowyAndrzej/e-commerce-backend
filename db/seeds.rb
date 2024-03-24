@@ -35,3 +35,11 @@ end
     updated_at: Faker::Time.between(from: DateTime.now - 365, to: DateTime.now)
   )
 end
+
+10.times do
+  order_item = OrderItem.create!(
+    quantity: Faker::Number.between(from: 1, to: 10),
+    product: Product.all.sample
+  )
+  puts "OrderItem #{order_item.id} created!"
+end

@@ -50,3 +50,5 @@ group :development do
 end
 
 gem "rodauth-rails", "~> 1.13"
+
+gem "jwt", "~> 2.8"

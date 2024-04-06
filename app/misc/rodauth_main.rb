@@ -4,7 +4,7 @@ class RodauthMain < Rodauth::Rails::Auth
   configure do
     # List of authentication features that are loaded.
     enable :create_account, :verify_account, :verify_account_grace_period,
-      :login, :logout, :remember, :json,
+      :login, :logout, :jwt,
       :reset_password, :change_password, :change_password_notify,
       :change_login, :verify_login_change, :close_account
 
@@ -23,11 +23,13 @@ class RodauthMain < Rodauth::Rails::Auth
     # verify_account_table :user_verification_keys
     # verify_login_change_table :user_login_change_keys
     # reset_password_table :user_password_reset_keys
-    # remember_table :user_remember_keys
 
     # The secret key used for hashing public-facing tokens for various features.
     # Defaults to Rails `secret_key_base`, but you can use your own secret key.
-    # hmac_secret "70c41d12a57828b467ffc2acdb02c83172a0999e497d2bb930d3e02abb7ea54ef9098116d0e04db44769b5b660857900e9f17234b91af7dcd0cdc67e9f20e668"
+    # hmac_secret "167adfee5bd685fe0009affc0369e43f31e90e5874503b9c475ded680a66034dc1964f1696161ebd9e39245e0a4d620fe41c89d922a59ec82e017e50b750b318"
+
+    # Set JWT secret, which is used to cryptographically protect the token.
+    jwt_secret { hmac_secret }
 
     # Accept only JSON requests.
     only_json? true
@@ -130,16 +132,6 @@ class RodauthMain < Rodauth::Rails::Auth
     #   end
     # end
 
-    # ==> Remember Feature
-    # Remember all logged in users.
-    after_login { remember_login }
-
-    # Or only remember users that have ticked a "Remember Me" checkbox on login.
-    # after_login { remember_login if param_or_nil("remember") }
-
-    # Extend user's remember period when remembered via a cookie
-    extend_remember_deadline? true
-
     # ==> Hooks
     # Validate custom fields in the create account form.
     # before_create_account do
@@ -161,6 +153,5 @@ class RodauthMain < Rodauth::Rails::Auth
     # verify_account_grace_period 3.days.to_i
     # reset_password_deadline_interval Hash[hours: 6]
     # verify_login_change_deadline_interval Hash[days: 2]
-    # remember_deadline_interval Hash[days: 30]
   end
 end

@@ -6,8 +6,6 @@ class RodauthApp < Rodauth::Rails::App
   # configure RodauthAdmin, :admin
 
   route do |r|
-    rodauth.load_memory # autologin remembered users
-
     r.rodauth # route rodauth requests
 
     # ==> Authenticating requests

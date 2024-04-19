@@ -16,12 +16,20 @@ module Types
   objects."
     end
 
+    field :product, ProductType, null: false, description: 'Fetch a product given its ID' do
+      argument :id, ID, required: true
+    end
+
     def node(id:)
       context.schema.object_from_id(id, context)
     end
 
     def nodes(ids:)
       ids.map { |id| context.schema.object_from_id(id, context) }
+    end
+
+    def product(id:)
+      Product.find(id)
     end
   end
 end

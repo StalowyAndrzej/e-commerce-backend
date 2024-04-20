@@ -17,7 +17,7 @@ module Types
     end
 
     field :product, ProductType, null: false, description: 'Fetch a product given its ID' do
-      argument :id, ID, required: true
+      argument :id, ID, required: true, description: 'IDs of the products'
     end
 
     def node(id:)

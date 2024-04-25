@@ -19,4 +19,4 @@ end
   )
 end
 
-Rails.logger.debug 'Seed data has been successfully added!'
+p "Created: #{Product.count} products, #{Crategory.count} categories,"

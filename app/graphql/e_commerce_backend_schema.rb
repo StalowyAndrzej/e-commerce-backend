@@ -8,13 +8,6 @@ class ECommerceBackendSchema < GraphQL::Schema
   use GraphQL::Dataloader
 
   # GraphQL-Ruby calls this when something goes wrong while running a query:
-  def self.type_error(err, context)
-    # if err.is_a?(GraphQL::InvalidNullError)
-    #   # report to your bug tracker here
-    #   return nil
-    # end
-    super
-  end
 
   # Union and Interface Resolution
   def self.resolve_type(_abstract_type, _obj, _ctx)

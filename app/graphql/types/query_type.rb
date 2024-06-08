@@ -27,9 +27,5 @@ module Types
     def nodes(ids:)
       ids.map { |id| context.schema.object_from_id(id, context) }
     end
-
-    def product(id:)
-      Product.find(id)
-    end
   end
 end

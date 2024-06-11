@@ -7,7 +7,7 @@ module Types
 
     field :node, Types::NodeType, null: true, description: "Fetches an
   object given its ID." do
-      argument :id, ID, required: true, description: 'ID of the object.'
+      argument :id, ID, required: true
     end
 
     def node(id:)

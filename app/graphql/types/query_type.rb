@@ -5,8 +5,7 @@ module Types
     include GraphQL::Types::Relay::HasNodeField
     include GraphQL::Types::Relay::HasNodesField
 
-    field :node, Types::NodeType, null: true, description: "Fetches an
-  object given its ID." do
+    field :node, Types::NodeType, null: true do
       argument :id, ID, required: true
     end
 

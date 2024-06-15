@@ -4,6 +4,7 @@ module Types
   class QueryType < Types::BaseObject
     include GraphQL::Types::Relay::HasNodeField
     include GraphQL::Types::Relay::HasNodesField
+    field :product, resolver: Resolvers::Query::Product
 
     def node(id:)
       context.schema.object_from_id(id, context)

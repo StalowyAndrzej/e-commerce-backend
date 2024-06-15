@@ -7,8 +7,7 @@ module Resolvers
       argument :id, String, required: true
 
       def resolve(id:)
-        product = ::Product.find_by(id: id)
-
+        ::Product.find_by(id:)
       end
     end
   end

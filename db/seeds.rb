@@ -19,4 +19,4 @@ end
   )
 end
 
-p "Created: #{Product.count} products, #{Crategory.count} categories,"
+p "Created: #{Product.count} products, #{Category.count} categories,"

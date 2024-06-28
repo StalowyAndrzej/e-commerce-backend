@@ -19,4 +19,20 @@ end
   )
 end
 
-p "Created: #{Product.count} products, #{Category.count} categories,"
+products = Product.all
+categories = Category.all
+
+products.each do |product|
+  categories.sample(rand(1..3)).each do |category|
+    ProductCategory.create!(
+      product_id: product.id,
+      category_id: category.id,
+      created_at: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
+      updated_at: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now)
+    )
+  end
+end
+
+Rails.logger.debug do
+  "Created: #{Product.count} products, #{Category.count} categories, #{ProductCategory.count} product_categories"
+end

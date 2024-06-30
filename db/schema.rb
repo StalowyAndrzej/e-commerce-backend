@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_27_064739) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_30_081001) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_064739) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "collections", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "product_categories", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.bigint "category_id", null: false
@@ -29,6 +36,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_064739) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_product_categories_on_category_id"
     t.index ["product_id"], name: "index_product_categories_on_product_id"
+  end
+
+  create_table "product_collections", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "collection_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["collection_id"], name: "index_product_collections_on_collection_id"
+    t.index ["product_id"], name: "index_product_collections_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -55,4 +71,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_064739) do
 
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products"
+  add_foreign_key "product_collections", "collections"
+  add_foreign_key "product_collections", "products"
 end

@@ -19,9 +19,20 @@ end
   )
 end
 
+5.times do
+  Collection.create(
+    name: Faker::Lorem.words(number: 2).join(' '),
+    description: Faker::Lorem.paragraph(sentence_count: 2),
+    created_at: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
+    updated_at: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now)
+  )
+end
+
 products = Product.all
 categories = Category.all
+collections = Collection.all
 
+# Przypisywanie produktów do kategorii
 products.each do |product|
   categories.sample(rand(1..3)).each do |category|
     ProductCategory.create!(
@@ -33,6 +44,16 @@ products.each do |product|
   end
 end
 
-Rails.logger.debug do
-  "Created: #{Product.count} products, #{Category.count} categories, #{ProductCategory.count} product_categories"
-end
+
+# products.each do |product|
+#   collections.sample(rand(1..2)).each do |collection|
+#     CollectionProduct.create!(
+#       product_id: product.id,
+#       collection_id: collection.id,
+#       created_at: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
+#       updated_at: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now)
+#     )
+#   end
+# end
+
+puts "Created: #{Product.count} products, #{Category.count} categories, #{ProductCategory.count} product_categories, #{Collection.count} collections"

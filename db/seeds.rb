@@ -32,7 +32,6 @@ products = Product.all
 categories = Category.all
 collections = Collection.all
 
-# Przypisywanie produktów do kategorii
 products.each do |product|
   categories.sample(rand(1..3)).each do |category|
     ProductCategory.create!(
@@ -45,15 +44,15 @@ products.each do |product|
 end
 
 
-# products.each do |product|
-#   collections.sample(rand(1..2)).each do |collection|
-#     CollectionProduct.create!(
-#       product_id: product.id,
-#       collection_id: collection.id,
-#       created_at: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
-#       updated_at: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now)
-#     )
-#   end
-# end
+products.each do |product|
+  collections.sample(rand(1..2)).each do |collection|
+    ProductCollection.create!(
+      product_id: product.id,
+      collection_id: collection.id,
+      created_at: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
+      updated_at: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now)
+    )
+  end
+end
 
-puts "Created: #{Product.count} products, #{Category.count} categories, #{ProductCategory.count} product_categories, #{Collection.count} collections"
+puts "Created: #{Product.count} products, #{Category.count} categories, #{ProductCategory.count} product_categories, #{Collection.count} collections, #{ProductCollection.count} product_collections"

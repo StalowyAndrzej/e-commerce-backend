@@ -56,19 +56,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_30_081001) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "api_token", null: false
-    t.datetime "deleted_at"
-    t.string "email", null: false
-    t.string "first_name"
-    t.string "last_name"
-    t.jsonb "metadata"
-    t.integer "role", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["api_token"], name: "index_users_on_api_token", unique: true
-  end
-
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products"
   add_foreign_key "product_collections", "collections"

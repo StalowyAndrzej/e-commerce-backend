@@ -64,4 +64,15 @@ end
   )
 end
 
+order_items_count.times do
+  OrderItem.create!(
+    order_id: order_ids.sample,
+    product_id: product_ids.sample,
+    quantity: Faker::Number.between(from: 1, to: 10),
+    unit_price: Faker::Number.between(from: 100, to: 10000), # Assuming unit price is in cents
+    created_at: Faker::Time.backward(days: 30),
+    updated_at: Faker::Time.backward(days: 30)
+  )
+end
+
 puts "Created: #{Product.count} products, #{Category.count} categories, #{ProductCategory.count} product_categories, #{Collection.count} collections, #{ProductCollection.count} product_collections, #{Order.count} orders"

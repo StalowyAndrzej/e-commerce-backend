@@ -55,14 +55,4 @@ products.each do |product|
   end
 end
 
-5.times do
-  Order.create!(
-    status: %w[pending paid shipped delivered cancelled].sample,
-    total_price: Faker::Commerce.price(range: 50..500),
-    created_at: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
-    updated_at: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now)
-  )
-end
-
-
 puts "Created: #{Product.count} products, #{Category.count} categories, #{ProductCategory.count} product_categories, #{Collection.count} collections, #{ProductCollection.count} product_collections, #{Order.count} orders"

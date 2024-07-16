@@ -54,5 +54,3 @@ products.each do |product|
     )
   end
 end
-
-puts "Created: #{Product.count} products, #{Category.count} categories, #{ProductCategory.count} product_categories, #{Collection.count} collections, #{ProductCollection.count} product_collections, #{Order.count} orders"
